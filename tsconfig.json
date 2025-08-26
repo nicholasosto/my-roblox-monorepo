@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true,
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@rbxts-utils/*": ["./packages/rbxts-utils/src/*"],
+      "@opencloud-api/*": ["./packages/opencloud-api/src/*"],
+  "@mcp-server/*": ["./packages/mcp-server/src/*"],
+  "@my-roblox-monorepo/opencloud-api": ["./packages/opencloud-api/src/index.ts"],
+  "@my-roblox-monorepo/mcp-server": ["./packages/mcp-server/src/index.ts"],
+  "@my-roblox-monorepo/rbxts-utils": ["./packages/rbxts-utils/src/index.ts"]
+    }
+  },
+  "include": [
+    "packages/rbxts-utils/src/**/*",
+    "packages/opencloud-api/src/**/*",
+    "packages/mcp-server/src/**/*"
+  ],
+  "exclude": [
+    "packages/game/**",
+    "node_modules",
+    "dist",
+    "out"
+  ],
+  "references": [
+    { "path": "./packages/rbxts-utils" },
+    { "path": "./packages/opencloud-api" },
+    { "path": "./packages/mcp-server" }
+  ],
+  
+}

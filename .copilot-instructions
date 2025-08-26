@@ -1,0 +1,257 @@
+# TypeScript Roblox Monorepo Build Instructions
+
+## Repository Overview
+This monorepo contains four main packages:
+- `packages/game/` - Main Roblox TypeScript game project
+- `packages/rbxts-utils/` - Custom rbxts-based utility package
+- `packages/opencloud-api/` - Roblox OpenCloud API wrapper
+- `packages/mcp-server/` - MCP (Model Context Protocol) server
+
+## Prerequisites
+- Node.js 18+ and pnpm
+- Roblox Studio
+- Git
+- Visual Studio Code (recommended)
+
+## Initial Setup
+
+### 1. Install Dependencies
+```bash
+# Install pnpm globally if not already installed
+npm install -g pnpm
+
+# Install all workspace dependencies
+pnpm install
+
+# Install development tools globally
+pnpm add -g @roblox-ts/cli rojo turbo
+```
+
+### 2. Environment Setup
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Edit .env with your configuration
+# - ROBLOX_API_KEY: Your Roblox OpenCloud API key
+# - UNIVERSE_ID: Your Roblox game's universe ID
+# - PLACE_ID: Your Roblox place ID
+```
+
+### 3. TypeScript Configuration
+```bash
+# Build TypeScript project references
+pnpm build:deps
+
+# Verify TypeScript configuration
+pnpm check:types
+```
+
+## Build Process
+
+### Full Monorepo Build
+```bash
+# Build all packages in correct dependency order
+pnpm build
+
+# Or use turbo for parallel builds
+turbo run build
+```
+
+### Individual Package Builds
+
+#### Game Package
+```bash
+# Navigate to game package
+cd packages/game
+
+# Compile TypeScript to Lua
+rbxtsc
+
+# Build and sync with Roblox Studio using Rojo
+rojo build --output game.rbxl
+rojo serve
+```
+
+#### Utility Package
+```bash
+cd packages/rbxts-utils
+
+# Build the package
+pnpm build
+
+# Run tests
+pnpm test
+
+# Publish to npm (if ready)
+pnpm publish
+```
+
+#### OpenCloud API Package
+```bash
+cd packages/opencloud-api
+
+# Build TypeScript
+pnpm build
+
+# Run tests with API mocks
+pnpm test
+
+# Generate API documentation
+pnpm docs
+```
+
+#### MCP Server Package
+```bash
+cd packages/mcp-server
+
+# Build the server
+pnpm build
+
+# Start development server
+pnpm dev
+
+# Start production server
+pnpm start
+```
+
+## Development Workflow
+
+### 1. Start Development Environment
+```bash
+# Start all development servers concurrently
+pnpm dev
+
+# This will:
+# - Start Rojo server for game sync
+# - Watch and rebuild packages on changes
+# - Start MCP server in development mode
+# - Run type checking in watch mode
+```
+
+### 2. Working with the Game
+```bash
+# In one terminal, start Rojo
+cd packages/game && rojo serve
+
+# In Roblox Studio:
+# 1. Open Roblox Studio
+# 2. Go to Plugins -> Rojo
+# 3. Connect to localhost:34872
+# 4. Click "Sync In"
+```
+
+### 3. Package Development
+```bash
+# Watch mode for utility package
+cd packages/rbxts-utils && pnpm dev
+
+# Test changes in game immediately (linked via workspace)
+cd packages/game && rbxtsc --watch
+```
+
+## Testing
+
+### Run All Tests
+```bash
+pnpm test
+```
+
+### Run Specific Package Tests
+```bash
+# Test utility package
+pnpm --filter rbxts-utils test
+
+# Test OpenCloud API with integration tests
+pnpm --filter opencloud-api test:integration
+
+# Test MCP server
+pnpm --filter mcp-server test
+```
+
+## Deployment
+
+### Game Deployment
+```bash
+# Build production game file
+cd packages/game
+rbxtsc --type=Game
+rojo build --output dist/game.rbxl
+
+# Upload to Roblox (requires OpenCloud API)
+cd ../opencloud-api
+node scripts/upload-place.js
+```
+
+### Package Publishing
+```bash
+# Publish utility package to npm
+cd packages/rbxts-utils
+npm version patch  # or minor/major
+pnpm publish
+
+# Publish OpenCloud API package
+cd packages/opencloud-api
+npm version patch
+pnpm publish
+```
+
+### MCP Server Deployment
+```bash
+# Build and deploy MCP server
+cd packages/mcp-server
+pnpm build
+pnpm deploy  # Uses deployment script
+```
+
+## Common Commands
+
+### Maintenance
+```bash
+# Update all dependencies
+pnpm update -r
+
+# Clean all build artifacts
+pnpm clean
+
+# Lint all packages
+pnpm lint
+
+# Fix linting issues
+pnpm lint:fix
+
+# Format code
+pnpm format
+```
+
+### Troubleshooting
+```bash
+# Clear all node_modules and reinstall
+pnpm clean:deps && pnpm install
+
+# Rebuild TypeScript project references
+pnpm build:clean && pnpm build
+
+# Reset Rojo connection
+# In Roblox Studio: Plugins -> Rojo -> Disconnect -> Connect
+```
+
+## Package Dependencies
+- `game` depends on `rbxts-utils`
+- `mcp-server` depends on `opencloud-api`
+- All packages can be built independently
+- Changes to `rbxts-utils` or `opencloud-api` require rebuilding dependent packages
+
+## Development Tips
+1. Use `turbo run dev` for parallel development of all packages
+2. Keep Rojo connected while developing the game for instant sync
+3. Use the MCP server for automated deployment and testing
+4. Run tests before pushing changes
+5. Use `pnpm changeset` for proper versioning of published packages
+
+## File Structure Notes
+- All source code in `src/` directories
+- Build outputs in `dist/` or `out/` directories  
+- Shared configuration at monorepo root
+- Package-specific configs in each package directory
+- Documentation in `docs/` directory and individual README files

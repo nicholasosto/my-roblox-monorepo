@@ -1,0 +1,39 @@
+{
+  "name": "my-roblox-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+  "build": "turbo run build",
+  "build:game": "turbo run build --filter=@my-roblox-monorepo/game",
+    "build:game:production": "pnpm --filter @my-roblox-monorepo/game build:production",
+    "build:deps": "tsc --build",
+  "dev": "turbo run dev",
+  "dev:game": "turbo run dev --filter=@my-roblox-monorepo/game",
+    "sync-assets": "pnpm --filter @my-roblox-monorepo/game sync-assets",
+    "watch-assets": "pnpm --filter @my-roblox-monorepo/game watch-assets",
+    "clean": "turbo run clean",
+    "clean:deps": "rm -rf node_modules packages/*/node_modules packages/*/dist packages/*/out",
+    "lint": "eslint packages/*/src --ext .ts,.tsx",
+    "lint:fix": "eslint packages/*/src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"packages/*/src/**/*.{ts,tsx,json,md}\"",
+    "test": "turbo run test",
+    "check:types": "tsc --noEmit",
+    "mcp:server": "pnpm --filter @my-roblox-monorepo/mcp-server start",
+  "setup": "pnpm install && pnpm build:deps && cp -n .env.example .env 2>/dev/null || true && echo 'Setup complete! Edit .env with your configuration.'"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "turbo": "^1.10.0",
+  "typescript": "^5.0.0",
+  "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

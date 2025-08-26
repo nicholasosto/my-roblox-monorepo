@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true,
+  "module": "CommonJS",
+  "moduleResolution": "node",
+  "esModuleInterop": true,
+    "target": "ES2020",
+    "baseUrl": ".",
+    "paths": {
+      "@my-roblox-monorepo/opencloud-api": ["../opencloud-api/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*"],
+  "references": [
+    { "path": "../opencloud-api" }
+  ],
+  "exclude": ["dist", "node_modules"]
+}

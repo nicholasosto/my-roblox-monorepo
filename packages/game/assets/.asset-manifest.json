@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "lastSync": null,
+  "assets": {},
+  "config": {
+    "autoSync": true,
+    "creator": {
+      "userId": null
+    },
+    "defaultTags": ["game-asset"],
+    "uploadOnBuild": true,
+    "watchMode": false,
+    "assetNamingConvention": "kebab-case",
+    "requiredMetadata": ["displayName", "description"],
+    "syncRules": {
+      "audio/**": {
+        "maxSizeBytes": 20971520,
+        "allowedExtensions": [".mp3", ".ogg"],
+        "defaultDescription": "Game audio asset"
+      },
+      "images/**": {
+        "maxSizeBytes": 20971520,
+        "allowedExtensions": [".png", ".jpg", ".jpeg", ".bmp", ".tga"],
+        "defaultDescription": "Game image asset"
+      },
+      "models/**": {
+        "maxSizeBytes": 20971520,
+        "allowedExtensions": [".fbx"],
+        "defaultDescription": "Game model asset"
+      },
+      "videos/**": {
+        "maxSizeBytes": 786432000,
+        "allowedExtensions": [".mp4", ".mov"],
+        "defaultDescription": "Game video asset"
+      }
+    }
+  }
+}

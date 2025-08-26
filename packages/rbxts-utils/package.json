@@ -1,0 +1,16 @@
+{
+  "name": "@my-roblox-monorepo/rbxts-utils",
+  "version": "1.0.0",
+  "description": "Reusable utilities for Roblox TypeScript projects",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "test": "echo 'No tests yet' && exit 0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

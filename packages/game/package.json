@@ -1,0 +1,22 @@
+{
+  "name": "@my-roblox-monorepo/game",
+  "version": "1.0.0",
+  "description": "Main Roblox TypeScript game project",
+  "main": "out/init.lua",
+  "scripts": {
+  "build": "rbxtsc",
+  "dev": "rbxtsc --watch",
+  "compile": "rbxtsc",
+  "serve": "echo 'Install Rojo to use serve' && exit 1",
+    "clean": "rm -rf out dist"
+  },
+  "dependencies": {
+  "@rbxts/compiler-types": "3.0.0-types.0",
+  "@rbxts/types": "^1.0.801"
+  },
+  "devDependencies": {
+  "roblox-ts": "^3.0.0",
+  "concurrently": "^8.0.0",
+  "typescript": "^5.0.0"
+  }
+}

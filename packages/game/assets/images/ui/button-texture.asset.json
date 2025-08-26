@@ -1,0 +1,20 @@
+{
+  "assetId": null,
+  "displayName": "Main Menu Button",
+  "description": "Button texture for main menu interface",
+  "assetType": "Decal",
+  "contentHash": null,
+  "uploadedAt": null,
+  "moderationState": null,
+  "version": 0,
+  "tags": ["ui", "button", "menu"],
+  "usedIn": ["MainMenu", "PauseMenu"],
+  "creator": {
+    "userId": null
+  },
+  "metadata": {
+    "dimensions": "256x64",
+    "format": "PNG",
+    "category": "ui-elements"
+  }
+}

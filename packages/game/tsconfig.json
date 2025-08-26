@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "moduleDetection": "force",
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "noLib": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "src",
+    "outDir": "out",
+    "rootDir": "src",
+  "typeRoots": ["./node_modules/@rbxts"],
+  "types": ["types"]
+  },
+  "include": ["src"]
+}

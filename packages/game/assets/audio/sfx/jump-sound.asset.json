@@ -1,0 +1,20 @@
+{
+  "assetId": null,
+  "displayName": "Jump Sound Effect",
+  "description": "Sound effect played when player jumps",
+  "assetType": "Audio",
+  "contentHash": null,
+  "uploadedAt": null,
+  "moderationState": null,
+  "version": 0,
+  "tags": ["sfx", "jump", "player-action"],
+  "usedIn": ["PlayerMovement", "CharacterController"],
+  "creator": {
+    "userId": null
+  },
+  "metadata": {
+    "duration": "0.5s",
+    "volume": "medium",
+    "category": "player-actions"
+  }
+}
