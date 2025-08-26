@@ -1,4 +1,19 @@
-# Dependencies
+# Node
+node_modules/
+
+# Build outputs
+dist/
+out/
+
+# Compiled artifacts accidentally generated in src
+packages/*/src/**/*.js
+packages/*/src/**/*.d.ts
+packages/*/src/**/*.d.ts.map
+
+# Misc
+.DS_Store
+.env
+.env.local# Dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
