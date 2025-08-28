@@ -33,5 +33,13 @@
   "engines": {
     "node": ">=18.0.0",
     "pnpm": ">=8.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "roblox-ts": "3.0.0",
+      "@rbxts/compiler-types": "3.0.0-types.0",
+      "@rbxts/types": "1.0.877",
+      "typescript": "5.5.3"
+    }
   }
 }
