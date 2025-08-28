@@ -12,8 +12,12 @@
     "baseUrl": "src",
     "outDir": "out",
     "rootDir": "src",
-  "typeRoots": ["./node_modules/@rbxts"],
-  "types": ["types"]
+    "paths": {
+      "@my-roblox-monorepo/rbxts-utils": ["../../rbxts-utils/src/index.ts"],
+      "@rbxts-utils/*": ["../../rbxts-utils/src/*"]
+    },
+    "typeRoots": ["./node_modules/@rbxts"],
+    "types": ["types"]
   },
   "include": ["src"]
 }

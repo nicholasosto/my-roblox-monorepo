@@ -12,7 +12,8 @@
   },
   "dependencies": {
   "@rbxts/compiler-types": "3.0.0-types.0",
-  "@rbxts/types": "1.0.877"
+  "@rbxts/types": "1.0.877",
+  "@my-roblox-monorepo/rbxts-utils": "workspace:*"
   },
   "devDependencies": {
   "roblox-ts": "3.0.0",
