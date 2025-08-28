@@ -38,6 +38,9 @@ importers:
 
   packages/game:
     dependencies:
+      '@my-roblox-monorepo/rbxts-utils':
+        specifier: workspace:*
+        version: link:../rbxts-utils
       '@rbxts/compiler-types':
         specifier: 3.0.0-types.0
         version: 3.0.0-types.0

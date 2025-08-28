@@ -9,13 +9,10 @@
     "noLib": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "src",
-    "outDir": "out",
-    "rootDir": "src",
-    "paths": {
-      "@my-roblox-monorepo/rbxts-utils": ["../../rbxts-utils/src/index.ts"],
-      "@rbxts-utils/*": ["../../rbxts-utils/src/*"]
-    },
+  "baseUrl": "src",
+  "outDir": "out",
+  "rootDir": "src",
+    
     "typeRoots": ["./node_modules/@rbxts"],
     "types": ["types"]
   },
