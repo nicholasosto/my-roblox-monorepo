@@ -6,9 +6,8 @@
 ```json
 {
   "scripts": {
-    "build:game": "pnpm --filter @my-roblox-monorepo/game build",
-    "dev:game": "pnpm --filter @my-roblox-monorepo/game dev", 
-    "sync-assets": "pnpm --filter @my-roblox-monorepo/game sync-assets",
+  "build:game": "pnpm --filter @my-roblox-monorepo/game build",
+  "dev:game": "pnpm --filter @my-roblox-monorepo/game dev",
     "build": "turbo run build"
   }
 }
@@ -18,9 +17,10 @@
 ```json
 {
   "scripts": {
-    "build": "node ../../tools/build-scripts/build-game.js",
-    "dev": "concurrently \"rojo serve\" \"rbxtsc --watch\"",
-    "sync-assets": "node ../../tools/build-scripts/build-game.js --assets-only"
+    "build": "rbxtsc",
+    "dev": "rbxtsc --watch",
+    "serve": "rojo serve",
+    "clean": "rm -rf out dist"
   }
 }
 ```
@@ -29,12 +29,12 @@
 
 ### Option 1: Root Orchestration (Recommended)
 ```
-monorepo root → pnpm filter → packages/game → build script → tools/build-scripts/build-game.js
+monorepo root → pnpm filter → packages/game → rbxtsc/rojo
 ```
 
 ### Option 2: Direct Package Control
 ```
-packages/game → npm run build → tools/build-scripts/build-game.js
+packages/game → npm run build → rbxtsc
 ```
 
 ### Option 3: Turbo Orchestration (All Packages)
@@ -72,10 +72,8 @@ packages/mcp-server/
 ### Shared Tools (Root Level)
 ```
 tools/
-├── build-scripts/
-│   └── build-game.js      # Game-specific build pipeline
 └── config/
-    └── deployment.json    # Shared deployment config
+  └── deployment.json    # Shared deployment config
 ```
 
 ### Package-Specific Tools
