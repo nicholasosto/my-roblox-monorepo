@@ -2,6 +2,10 @@
 
 A minimal Roblox-ts project inside the monorepo.
 
+Related docs:
+
+- Asset naming conventions: ../../docs/asset-naming.md
+
 ## Prereqs
 
 - Node 18+

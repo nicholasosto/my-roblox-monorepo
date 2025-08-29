@@ -35,13 +35,15 @@ A comprehensive monorepo for TypeScript-based Roblox development, containing:
 Detailed build instructions and workflows are available in `.copilot-instructions`.
 
 Additional documentation:
+
 - [Setup Guide](docs/setup.md)
 - [Deployment Guide](docs/deployment.md)
 - [API Documentation](docs/api/)
+- [Asset Naming Conventions](docs/asset-naming.md)
 
 ## Package Structure
 
-```
+```text
 packages/
 ├── game/           # Main Roblox game (rbxts)
 ├── rbxts-utils/    # Reusable utilities (npm package)
@@ -52,6 +54,7 @@ packages/
 ## Development
 
 This monorepo uses:
+
 - **pnpm workspaces** for dependency management
 - **Turbo** for build orchestration
 - **TypeScript project references** for incremental builds

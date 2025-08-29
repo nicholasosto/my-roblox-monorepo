@@ -4,20 +4,33 @@
   "description": "Main Roblox TypeScript game project",
   "main": "out/init.lua",
   "scripts": {
-  "build": "rbxtsc",
-  "dev": "rbxtsc --watch",
-  "compile": "rbxtsc",
-  "serve": "rojo serve",
-    "clean": "rm -rf out dist"
+    "build": "rbxtsc",
+    "dev": "rbxtsc --watch",
+    "compile": "rbxtsc",
+    "serve": "rojo serve",
+    "clean": "rm -rf out dist",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write src/**/*.ts",
+    "format:check": "prettier --check src/**/*.ts"
   },
   "dependencies": {
-  "@rbxts/compiler-types": "3.0.0-types.0",
-  "@rbxts/types": "1.0.877",
-  "@my-roblox-monorepo/rbxts-utils": "workspace:*"
+    "@my-roblox-monorepo/rbxts-utils": "workspace:*",
+    "@rbxts/fusion": "^0.2.0",
+    "@rbxts/types": "1.0.877"
   },
   "devDependencies": {
-  "roblox-ts": "3.0.0",
-  "concurrently": "^8.0.0",
-  "typescript": "5.5.3"
+    "@rbxts/compiler-types": "3.0.0-types.0",
+    "@types/node": "^24.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "concurrently": "^8.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-roblox-ts": "^0.0.36",
+    "prettier": "^3.6.2",
+    "roblox-ts": "3.0.0",
+    "typescript": "5.5.3"
   }
 }

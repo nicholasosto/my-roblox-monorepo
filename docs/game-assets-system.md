@@ -2,9 +2,11 @@
 
 This document describes the GameAssets folder system integration with OpenCloud Asset API for automated asset management.
 
+See also: [Asset Naming Conventions](./asset-naming.md) for required filename patterns validated by the tools.
+
 ## Folder Structure
 
-```
+```text
 packages/game/
 ├── src/
 ├── assets/                    # Game assets folder
@@ -88,12 +90,14 @@ The `.asset-manifest.json` tracks all assets in the project:
 ## MCP Tools Integration
 
 ### Asset Sync Tool
+
 - `sync-assets` - Sync all changed assets
 - `watch-assets` - Watch folder for changes and auto-sync
 - `validate-assets` - Check assets before upload
 - `generate-constants` - Create TypeScript constants file
 
 ### Asset Management Tools  
+
 - `list-assets` - Show all assets and their status
 - `update-asset-metadata` - Update descriptions, tags, etc.
 - `check-asset-usage` - Find where assets are referenced in code
